@@ -1,0 +1,38 @@
+{
+	"name": "locale",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"dev": "nodemon ./src/app.js",
+		"format": "prettier . --write",
+		"lint": "eslint . --fix",
+		"lint-format": "npm run format & npm run lint"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.43.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"nodemon": "^2.0.22",
+		"prettier": "^2.8.8"
+	},
+	"dependencies": {
+		"bcrypt": "^5.1.0",
+		"connect-redis": "^7.1.0",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"express-rate-limit": "^6.7.0",
+		"express-session": "^1.17.3",
+		"joi": "^17.9.2",
+		"jsonwebtoken": "^9.0.0",
+		"mongoose": "^7.3.1",
+		"morgan": "^1.10.0",
+		"pino": "^6.14.0",
+		"pino-pretty": "^7.5.1",
+		"redis": "^4.6.7",
+		"uuid": "^9.0.0"
+	}
+}
