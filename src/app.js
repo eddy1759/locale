@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 	res.status(200).json({
 		status: true,
 		message: 'Welcome to Locale built by Edet Emmanuel Asuquo',
-		data: 'Go to /api-doc to access the documentation'
+		data: 'Go to /api-docs to access the api documentation',
 	});
 });
 
