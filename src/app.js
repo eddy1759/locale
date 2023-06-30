@@ -1,10 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const swaggerUi = require('swagger-ui-express');
 
 const CONFIG = require('./config/config');
 const dbConnection = require('./config/dbConfig');
 const redisClient = require('./config/redisConfig');
+const specs = require('./config/swagggerConfig');
 
 const { userRoutes, apiKeyRoutes, locationRoutes } = require('./routes/index');
 const rateLimiter = require('./middleware/rateLimit');
@@ -18,6 +20,8 @@ dbConnection();
 
 // Connect to Redis
 redisClient.connect();
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Middlewares
 app.use(express.json());
