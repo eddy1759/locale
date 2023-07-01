@@ -41,7 +41,7 @@ app.use(rateLimiter);
 // Routes
 app.use('/api', userRoutes);
 app.use('/api/locations', locationRoutes);
-app.use('/api/api-keys', apiKeyRoutes);
+app.use('/api/apiKey', apiKeyRoutes);
 
 app.get('/', (req, res) => {
 	res.status(200).json({

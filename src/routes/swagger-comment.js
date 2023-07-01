@@ -79,7 +79,7 @@
 
 /**
  * @swagger
- * /user/register:
+ * /api/register:
  *   post:
  *     summary: Register a new user
  *     tags: [User]
@@ -124,7 +124,7 @@
 
 /**
  * @swagger
- * /user/login:
+ * /api/login:
  *   post:
  *     summary: User login
  *     tags: [User]
@@ -172,7 +172,7 @@
 
 /**
  * @swagger
- * /location/regions:
+ * /api/location/regions:
  *   get:
  *     summary: Get all regions
  *     tags: [Location]
@@ -227,7 +227,7 @@
 
 /**
  * @swagger
- * /location/states:
+ * /api/location/states:
  *   get:
  *     summary: Get all states
  *     tags: [Location]
@@ -288,7 +288,7 @@
 
 /**
  * @swagger
- * /location/lgas:
+ * /api/location/lgas:
  *   get:
  *     summary: Get all LGAs
  *     tags: [Location]
@@ -347,7 +347,7 @@
 
 /**
  * @swagger
- * /location/states/{id}:
+ * /api/location/states/{id}:
  *   get:
  *     summary: Get state details by ID
  *     tags:
@@ -376,7 +376,7 @@
 
 /**
  * @swagger
- * /location/states/all:
+ * /api/location/states/all:
  *   get:
  *     summary: Get all distinct states
  *     tags:
@@ -396,7 +396,7 @@
 
 /**
  * @swagger
- * /location/regions/all:
+ * /api/location/regions/all:
  *   get:
  *     summary: Get all distinct regions
  *     tags:
@@ -412,4 +412,86 @@
  *               type: array
  *               items:
  *                 type: string
+ */
+
+/**
+ * @swagger
+ * /api/apiKey:
+ *   get:
+ *     summary: Generate API Key
+ *     description: Generates a new API Key for the authenticated user.
+ *     tags:
+ *       - API Key
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       201:
+ *         description: API Key generated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 apiKey:
+ *                   type: string
+ *                   description: The generated API Key.
+ *       404:
+ *         description: User with API Key already exists.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Error message indicating that the user with API Key already exists.
+ *       500:
+ *         description: Internal server error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   description: Status indicating the success of the request.
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the internal server error.
+ */
+
+/**
+ * @swagger
+ * /api/apiKey:
+ *   delete:
+ *     summary: Delete API Key
+ *     description: Deletes the API Key of the authenticated user.
+ *     tags:
+ *       - API Key
+ *     security:
+ *       - Auth: []
+ *     responses:
+ *       200:
+ *         description: API Key deleted successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Success message indicating that the API Key was deleted.
+ *       500:
+ *         description: Internal server error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   description: Status indicating the success of the request.
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the internal server error.
  */
