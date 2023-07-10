@@ -1,43 +1,50 @@
 # Locale
+
 This is a RESTful API built with Node.js and Express, which provides location data, specifically for regions, states and local governments in Nigeria.
 
 This API uses a database of location data and a caching mechanism for better performance.
 
 ## Prerequisites
+
 Node.js and npm installed on your local machine.
+
 - I have hosted it on: Render : https://api-locale.onrender.com
 - api documentation: https://api-locale.onrender.com/api-docs/
-
 
 ## Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/eddy1759/locale.git
+
+   ```bash
+   git clone https://github.com/eddy1759/locale.git
    ```
 
 2. Navigate into the project directory:
+
 ```bash
     cd locale
-   ```
+```
 
 3. Install dependencies by running the following command:
    ```bash
    npm install
    ```
 4. change the example.env as .env and populate file with required credentials
-    ```bash
+
+   ```bash
    mv example.env
    ```
 
-
 5. Start the development server:
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
+
 ---
+
 ## API Documentation
-This section should provide information about the API endpoints and their usage. 
+
+This section should provide information about the API endpoints and their usage.
 
 1. **Get Regions**: `api/location/regions`
 
@@ -47,10 +54,9 @@ This section should provide information about the API endpoints and their usage.
 
    Fetches the data of a specific state or all states if no state name is provided. You can also specify whether you want to include Local Government Areas (LGAs) by setting the `lga` query parameter to `true`.
 
-
 3. **Get States By Id**: `api/location/states/:id`
 
-    Fetches the data of a specific state according to the number/id. You can also specify whether you want to include Local Government Areas (LGAs) by setting the `lga` query parameter to `true`.
+   Fetches the data of a specific state according to the number/id. You can also specify whether you want to include Local Government Areas (LGAs) by setting the `lga` query parameter to `true`.
 
 4. **Get Local Government**: `api/location/lga`
 
@@ -78,16 +84,17 @@ This section should provide information about the API endpoints and their usage.
 
 10. **DELETE ApiKey**: `api/apiKey/`
 
-   Delete apiKey for authenticated users.
-
+Delete apiKey for authenticated users.
 
 ---
+
 #### API USAGE
 
 **POST /api/register**
 
-*Description:* Register a new user.
+_Description:_ Register a new user.
 **Request Body:**
+
 ```
 {
     "username": "example",
@@ -95,24 +102,31 @@ This section should provide information about the API endpoints and their usage.
     "password": "password"
 }
 ```
+
 **Response:**
+
 ```
 {
   "message": "Register Successfully"
 }
 ```
+
 ---
+
 **POST /login**
 
-*Description:* Login with existing user credentials.
+_Description:_ Login with existing user credentials.
 **Request Body:**
+
 ```
 {
   "email": "example@example.com",
   "password": "password"
 }
 ```
+
 **Response:**
+
 ```
 {
   "status": true,
@@ -171,7 +185,7 @@ GET locations/state?state_name=Abia&apiKey=${apiKey}
       "Ukwa East",
       "Umuahia South",
       "Umuahia North"
-   ],	
+   ],
 }
 ```
 

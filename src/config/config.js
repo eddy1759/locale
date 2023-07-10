@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 const CONFIG = {
 	PORT: process.env.PORT,
@@ -11,4 +11,5 @@ const CONFIG = {
 	expiresIn: process.env.EXPIRE_IN,
 	tty: process.env.CACHE_EXPIRATION_SECONDS,
 };
+
 module.exports = CONFIG;

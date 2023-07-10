@@ -5,21 +5,19 @@ const swaggerUi = require('swagger-ui-express');
 
 const CONFIG = require('./config/config');
 const dbConnection = require('./config/dbConfig');
-const redisClient = require('./config/redisConfig');
+// const redisClient = require('./config/redisConfig');
 const specs = require('./config/swagggerConfig');
 
 const { userRoutes, apiKeyRoutes, locationRoutes } = require('./routes/index');
 const rateLimiter = require('./middleware/rateLimit');
-const { infoLogger } = require('./middleware/logger');
 
 const app = express();
-const PORT = CONFIG.PORT;
 
 // Connect to the database
 dbConnection();
 
 // Connect to Redis
-redisClient.connect();
+// redisClient.connect();
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
@@ -51,7 +49,4 @@ app.get('/', (req, res) => {
 	});
 });
 
-// Start the server
-app.listen(PORT, () => {
-	infoLogger.info(`Server is running on port ${PORT}`);
-});
+module.exports = app;

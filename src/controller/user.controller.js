@@ -43,10 +43,10 @@ const loginUser = async (req, res) => {
 		if (!match) {
 			return res.status(401).send('Invalid password');
 		}
-		const userApiKey = APIKeyModel.findOne({ userId: user._id });
+		const userApiKey = await APIKeyModel.findOne({ userId: user._id });
 
 		if (userApiKey) {
-			return res.status(200).json("You're logged in");
+			return res.status(200).json({ message: "You're logged in" });
 		}
 
 		const api_key = generateAPIKEY();
